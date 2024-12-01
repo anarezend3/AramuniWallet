@@ -1,11 +1,12 @@
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=09738a&height=120&section=header"/>
 
-# AramuniWallet - Logo
+# AramuniWallet
 
+Este repositório contém o desenvolvimento de um trabalho para a matéria de Projeto de Software - 2024.
 
 # Integrantes
 
-## Alunos
+Alunos:
 
 - Ana Luiza Rezende
 
@@ -19,7 +20,7 @@
 
 [![GitHub](https://img.shields.io/badge/GitHub-Profile-informational?style=flat&logo=github&logoColor=white&color=a8b0ff)](https://github.com/luidiC)
 
-## Professor
+Professor:
 
 - João Paulo Aramuni
 
