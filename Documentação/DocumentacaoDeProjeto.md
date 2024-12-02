@@ -1,48 +1,5 @@
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=09738a&height=120&section=header"/> 
 
-**Documentação de Projeto**
-
-**para o sistema**
-
-**Aramuni Wallet**  
-
-**Versão 1.0** 
-
-Projeto de sistema elaborado pelo(s) aluno(s) Ana Luiza Rezende, Gustavo Costa Gabrich e Luidi Cadete Silva  
-como parte da disciplina **Projeto de Software**.
-
-**29/11/2024**
-
-**Tabela de Conteúdo**
-
-**[1\. Introdução	1](#introdução)**
-
-[**2\. Modelos de Usuário e Requisitos	1**](#modelos-de-usuário-e-requisitos)
-
-[2.1 Descrição de Atores	1](#descrição-de-atores)
-
-[2.2 Modelo de Casos de Uso	2](#modelo-de-casos-de-uso)
-
-[2.3 Diagrama de Sequência do Sistema	3](#diagrama-de-sequência-do-sistema)
-
-[**3\. Modelos de Projeto	5**](#modelos-de-projeto)
-
-[3.1 Arquitetura	5](#arquitetura)
-
-[3.2 Diagrama de Componentes e Implantação.	6](#diagrama-de-componentes-e-implantação.)
-
-[3.3 Diagrama de Classes	6](#diagrama-de-classes)
-
-[3.4 Diagramas de Sequência	8](#diagramas-de-sequência)
-
-[3.5 Diagramas de Comunicação	8](#diagramas-de-comunicação)
-
-[3.6 Diagramas de Estados	10](#diagramas-de-estados)
-
-[**4\. Modelos de Dados	10**](#modelos-de-dados)
-
-
-
 1. # **Introdução** {#introdução}
 
 Este documento compila as diretrizes e especificações do projeto Aramuni Wallet, uma aplicação web dedicada ao controle financeiro, tanto pessoal quanto profissional. O objetivo do projeto é oferecer uma solução prática e eficiente para gerenciar finanças, promovendo a organização de receitas e despesas e incentivando a educação financeira.
@@ -163,8 +120,53 @@ Diagramas de comunicação para realização de casos de uso.
 
 4. # **Modelos de Dados** {#modelos-de-dados}
 
-Deve-se apresentar os esquemas de banco de dados e as estratégias de mapeamento entre as representações de objetos e não-objetos. 
+![](../Documentação/image/bd.jpeg)
+O banco de dados contém uma tabela chamada transacoes, que é utilizada para armazenar informações relacionadas às transações financeiras do sistema **Aramuni Wallet**.  
+   
+**Tabela transacoes**
 
+| Coluna | Tipo de Dados | Restrições | Descrição |
+| :---- | :---- | :---- | :---- |
+| id | INT | PRIMARY KEY, AUTO\_INCREMENT | Identificador único da transação. |
+| descricao | VARCHAR(255) | NOT NULL | Descrição da transação (ex.: "salário"). |
+| valor | DECIMAL(10, 2\) | NOT NULL | Valor monetário da transação. Positivo para entradas e negativo para saídas. |
+| data | DATE | NOT NULL | Data em que a transação foi realizada. |
+| tipo | ENUM('entrada', 'saida') | NOT NULL | Tipo da transação: entrada ou saida. |
 
+A classe Transacao foi projetada para refletir a estrutura da tabela transacoes. Abaixo estão as estratégias de mapeamento entre os objetos no código PHP e os dados no banco de dados.
+
+#### **Mapeamento Objeto-Relacional**
+
+| Atributo da Classe | Coluna no Banco de Dados | Descrição |
+| ----- | ----- | ----- |
+| $id | id | Identificador único da transação. |
+| $descricao | descricao | Descrição textual da transação. |
+| $valor | valor | Valor monetário da transação. |
+| $data | data | Data em que a transação ocorreu. |
+| $tipo | tipo | Tipo da transação (entrada ou saida). |
+
+#### **Script de Criação da Tabela**
+
+Abaixo está o SQL utilizado para criar a tabela transacoes:
+
+sql  
+Copiar código  
+CREATE TABLE transacoes (  
+    id INT AUTO\_INCREMENT PRIMARY KEY,  
+    descricao VARCHAR(255) NOT NULL,  
+    valor DECIMAL(10, 2\) NOT NULL,  
+    data DATE NOT NULL,  
+    tipo ENUM('entrada', 'saida') NOT NULL  
+);
+
+5. # **Implantação do Projeto** {#implantação-do-projeto}
+
+[Código](../aramuni%20wallet/)
+
+5. # **Apresentação do Site** {#apresentação-do-site}
+
+Nesta pasta consta os vídeos de apresentação do projeto funcionando.
+
+[Vídeos](../Apresentação/)
 
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=09738a&height=120&section=footer"/>
